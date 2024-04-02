@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <input id="iii" type="text">
+        <button onclick="writeText()">Write</button>
+        <h1 id="disp"></h1>
+    </main>
+
+    <main>
+        <h1>main</h1>
+        <input id="fff" type="text">
+        <button>Reg</button>
+    </main>
+    <form>
+        <h1>Form</h1>
+        <input id="fff" type="text">
+        <button onclick="reg(event)">Reg</button>
+        <input type="submit" value="Click">
+    </form>
+</body>
+</html>
+
+<script>
+    function reg(dan){
+        dan.preventDefault();
+        localStorage.setItem("ttt", fff.value);
+        window.location.href = "check.html"
+    }
+
+    //GET ITEM, SET ITEM, CLEAR ITEM
+    let iii = document.getElementById("iii");
+    let disp = document.getElementById("disp");
+    let arr = []
+    console.log(arr, "When I refresh the page");
+    function writeText(){
+        arr.push(iii.value)
+        console.log(arr, "When I add to the array");
+        localStorage.setItem("info", JSON.stringify(arr))
+        // localStorage.setItem("info", arr)
+        // arr.forEach((el)=>{
+        //     disp.innerHTML += el
+        // })
+        dispText()
+    }
+    function dispText(){
+        let allInfo = JSON.parse(localStorage.getItem("info"))
+        console.log(allInfo);
+        allInfo.forEach(element => {
+            disp.innerHTML += element + "<br />"
+        });
+    }
+    dispText()
+
+</script>
