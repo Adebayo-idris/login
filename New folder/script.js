@@ -59,5 +59,5 @@ function login() {
     } else {
         alert("Invalid username or password!");
     }
-    return false;
+    return ;
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Login</h2>
+                <form id="login-form">
+                    <div class="mb-3">
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            placeholder="Username"
+                            required
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            placeholder="Password"
+                            required
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn btn-primary w-100"
+                        onclick="login(event)"
+                    >
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    let det = JSON.parse(localStorage.getItem("details"));
+    console.log(det);
+    function login(ev) {
+        ev.preventDefault();
+        let found = det.find(
+            (el) => el.email == email.value && el.password == password.value
+        );
+        console.log(found);
+        if (found == undefined) {
+            alert("User info not correct");
+            return;
+        } else {
+            alert("Login successfull");
+            window.location.href = "dashboad.html";
+        }
+    }
+</script>
